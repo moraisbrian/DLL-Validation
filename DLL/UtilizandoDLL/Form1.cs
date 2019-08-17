@@ -19,9 +19,9 @@ namespace UtilizandoDLL
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {            
+        {
             //VALIDAR CPF
-            if (Utilitarios.Repositorio .ValidarCPF(txtCPF.Text))
+            if (Utilitarios.Repositorio.ValidarCPF(txtCPF.Text))
                 lblValidaCPF.Text = "CPF válido";
             else
                 lblValidaCPF.Text = "CPF inválido";
@@ -38,7 +38,7 @@ namespace UtilizandoDLL
             else
                 lblValidaEmail.Text = "Email inválido";
 
-            
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -101,7 +101,7 @@ namespace UtilizandoDLL
         private void button6_Click(object sender, EventArgs e)
         {
             //botão adicionar
-            if(openFileDialog1.ShowDialog() == DialogResult.OK)
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 lstAnexo.Items.Add(openFileDialog1.FileName);//add item
             }
@@ -126,13 +126,13 @@ namespace UtilizandoDLL
 
             //pegar os anexos
             List<string> anexo = new List<string>();
-            for(int i = 0;i<lstAnexo.Items.Count;i++)
+            for (int i = 0; i < lstAnexo.Items.Count; i++)
             {
                 anexo.Add(lstAnexo.Items[i].ToString());
             }
             //enviar Email
             Utilitarios.Repositorio.EnviarEmail(smtp, txtDe.Text, txtSenha.Text, txtPara.Text, txtTitulo.Text, txtMensagem.Text, anexo, false);
-            
+
             MessageBox.Show("Email enviado com sucesso!");
         }
     }
